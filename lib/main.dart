@@ -1,4 +1,5 @@
 import 'package:e_coommerce_app/pages/login_page.dart';
+import 'package:e_coommerce_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'utils/routes.dart';
 import 'pages/home_page.dart';
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: MyTheme.themeData,
       routes: {
-        "/": (context)=>LoginPage(),
+        "/": (context)=>HomePage(),
         MyRoute.loginRoute :(context) => LoginPage(),
         MyRoute.homeRoute :(context) =>HomePage()
       },
