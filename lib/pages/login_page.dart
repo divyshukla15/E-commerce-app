@@ -34,19 +34,19 @@ class _LoginPageState extends State<LoginPage> {
         child: Form(
           key: _formKey,
           child: Column(children: [
-                  Image.asset("assets/images/undraw_Authentication_re_svpt.png",
+                  Image.asset("assets/undraw_Authentication_re_svpt.png",
               fit: BoxFit.cover),
               Text(
-          'data ${name}',
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
+              'data ${name}',
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
               ),
               const SizedBox(
-          height: 20,
+                height: 20,
               ),
               Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 14.0),
-          child: Column(
-            children: [
+                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 14.0),
+              child: Column(
+              children: [
               TextFormField(
                 controller: email,
                 validator:(value) {
