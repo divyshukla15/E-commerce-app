@@ -8,12 +8,10 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(" Cart")),
-      body: 
-      
-       const Column(children: [
-          Expanded(child: _CartList()),
-          // Divider(),
-            _CartTotal(),
+      body: const Column(children: [
+        Expanded(child: _CartList()),
+        // Divider(),
+        _CartTotal(),
       ]),
     );
   }
@@ -24,20 +22,18 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final _cart= CartModel();
-    return  SizedBox(
+    final _cart = CartModel();
+    return SizedBox(
       height: 200,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        Text("\$${_cart.totalPrice}"),
+        Text("\$${_cart.money}"),
         ElevatedButton(
-          child: Text("buy"),
-          onPressed:(){
-            ScaffoldMessenger.of(context).showSnackBar(
-             SnackBar(backgroundColor: Colors.red,content: Text("Buying not supported")
-            ));
-           } 
-          ),
-           
+            child: Text("buy"),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  backgroundColor: Colors.red,
+                  content: Text("Buying not supported")));
+            }),
       ]),
     );
   }
@@ -51,20 +47,28 @@ class _CartList extends StatefulWidget {
 }
 
 class __CartListState extends State<_CartList> {
-  final _cart= CartModel();
+  final _cart = CartModel();
+  
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _cart.items.length,
-      itemBuilder: (context, index) => ListTile(
-        leading: const Icon(Icons.done),
-        trailing: IconButton(
-          icon: const Icon(Icons.remove_circle_outline),
-          onPressed: () {},
-        ),
-        // ignore: prefer_const_constructors
-        title: Text(_cart.items[index].name),
-      ),
-    );
+    return _cart.items.isEmpty
+        ? Text("Noting to show")
+        : ListView.builder(
+            itemCount: _cart.items.length,
+            itemBuilder: (context, index) => ListTile(
+              leading: const Icon(Icons.done),
+              trailing: IconButton(
+                icon: const Icon(Icons.remove_circle_outline),
+                onPressed: () {
+                  _cart.remove(_cart.items[index]);
+                  setState(() {
+                    
+                  });
+                },
+              ),
+              // ignore: prefer_const_constructors
+              title: Text(_cart.items[index].name),
+            ),
+          );
   }
 }
