@@ -1,4 +1,5 @@
 import 'package:e_coommerce_app/models/cart.dart';
+import 'package:e_coommerce_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatelessWidget {
@@ -7,7 +8,10 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(" Cart")),
+      appBar: AppBar(
+        title: Text(" Cart Items"),
+        backgroundColor: Color.fromARGB(220, 168, 243, 201),
+      ),
       body: const Column(children: [
         Expanded(child: _CartList()),
         // Divider(),
@@ -17,24 +21,51 @@ class CartPage extends StatelessWidget {
   }
 }
 
-class _CartTotal extends StatelessWidget {
+class _CartTotal extends StatefulWidget {
   const _CartTotal({super.key});
 
   @override
+  State<_CartTotal> createState() => _CartTotalState();
+}
+
+class _CartTotalState extends State<_CartTotal> {
+  @override
   Widget build(BuildContext context) {
     final _cart = CartModel();
-    return SizedBox(
-      height: 200,
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-        Text("\$${_cart.money}"),
-        ElevatedButton(
-            child: Text("buy"),
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  backgroundColor: Colors.red,
-                  content: Text("Buying not supported")));
-            }),
-      ]),
+    return Container(
+      color: Color.fromARGB(253, 249, 231, 215),
+      child: SizedBox(
+        height: 180,
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          RefreshIndicator(
+            onRefresh: () async {
+              await Future.delayed(const Duration(seconds: 1));
+            },child: Text(
+            "\$${_cart.money}",
+            style: TextStyle(
+                color: dg(),
+                fontSize: 20,
+                fontWeight: FontWeight.w800),
+                
+          ),
+          ),
+             ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: dg(),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(17))),
+                child: const Text(
+                  "BUY",
+                  style: TextStyle(fontSize: 17),
+                ),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      backgroundColor: Colors.red,
+                      content: Text("Buying not supported , yet.")));
+                }),
+          
+        ]),
+      ),
     );
   }
 }
@@ -48,27 +79,45 @@ class _CartList extends StatefulWidget {
 
 class __CartListState extends State<_CartList> {
   final _cart = CartModel();
-  
+
   @override
   Widget build(BuildContext context) {
-    return _cart.items.isEmpty
-        ? Text("Noting to show")
-        : ListView.builder(
-            itemCount: _cart.items.length,
-            itemBuilder: (context, index) => ListTile(
-              leading: const Icon(Icons.done),
-              trailing: IconButton(
-                icon: const Icon(Icons.remove_circle_outline),
-                onPressed: () {
-                  _cart.remove(_cart.items[index]);
-                  setState(() {
-                    
-                  });
-                },
+    return Scaffold(
+      backgroundColor: Color.fromARGB(253, 249, 231, 215),
+      body: _cart.items.isEmpty
+          ? Column(
+              children: [
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: Image.asset("assets/3516854.png"),
+                  ),
+                ),
+                const Text(
+                  "No Items in the Cart",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                ),
+              ],
+            )
+          : ListView.builder(
+              itemCount: _cart.items.length,
+              itemBuilder: (context, index) => ListTile(
+                leading:  Icon(Icons.done,
+                    color: dg()),
+                trailing: IconButton(
+                  icon:  Icon(Icons.remove_circle_outline,
+                      color:dg()),
+                  onPressed: () {
+                    _cart.remove(_cart.items[index]);
+                   
+                   setState(() {});
+                  },
+                ),
+                // ignore: prefer_const_constructors
+                title: Text(_cart.items[index].name),
               ),
-              // ignore: prefer_const_constructors
-              title: Text(_cart.items[index].name),
-            ),
-          );
+            ),);
+              
   }
 }

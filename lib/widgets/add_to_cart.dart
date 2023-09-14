@@ -41,7 +41,7 @@ class _AddToCartState extends State<AddToCart> {
         }
       },
       // ignore: prefer_const_constructors
-      child: isInCart ? Icon(Icons.done) : Icon(CupertinoIcons.cart_badge_plus),
-    );
+      child: isInCart ? Icon(Icons.done, ) : Icon(CupertinoIcons.cart_badge_plus,
+    ));
   }
 }

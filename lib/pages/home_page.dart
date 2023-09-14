@@ -1,9 +1,12 @@
 import 'package:e_coommerce_app/models/catalog.dart';
+import 'package:e_coommerce_app/utils/colors.dart';
 import 'package:e_coommerce_app/widgets/drawer.dart';
 import 'package:e_coommerce_app/widgets/item_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
+//import 'package:e_coommerce_app/utils/colors.dart';
 
 import '../utils/routes.dart';
 
@@ -34,29 +37,44 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     //final dummyList =List.generate(10, (index)=>CatalogModel.items[0]);
-    return Scaffold( backgroundColor: Color.fromARGB(220, 168, 243, 201),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    return RefreshIndicator(
+            onRefresh: () async {
+              await Future.delayed(const Duration(seconds: 1));
+            },child:Scaffold(
+        backgroundColor: Color.fromARGB(220, 168, 243, 201),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
           backgroundColor: Color.fromARGB(255, 3, 111, 66),
           elevation: 2.0,
           tooltip: "Add to Cart",
-          child: const Icon(Icons.shopping_cart_outlined, size: 30,),
-          onPressed: () {Navigator.pushNamed(context, MyRoute.cartRoute);},
+          child: const Icon(
+            Icons.shopping_cart_outlined,
+            size: 30,
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, MyRoute.cartRoute);
+          },
         ),
-        appBar: AppBar(title: const Text(" Home Page")),
+        appBar: AppBar(
+          title: const Text("Catalog App", style: TextStyle(fontSize: 17)),
+        ),
         drawer: const MyDrawer(),
         body: Padding(
-          padding: const EdgeInsets.only(bottom: 50),
+          padding: EdgeInsets.only(bottom: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Catalog App",
-                style: TextStyle(fontSize: 28),
-              ),
-              const Text(
-                "Trending App",
-                style: TextStyle(fontSize: 20),
+              // const Text(
+              //   "Catalog App",
+              //   style: TextStyle(fontSize: 28,),
+              // ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Trending Products",
+                  style: TextStyle(
+                      fontSize: 40, color: dg(), fontWeight: FontWeight.w300),
+                ),
               ),
               Expanded(
                 child: (CatalogModel.items.isNotEmpty)
@@ -66,12 +84,34 @@ class _HomePageState extends State<HomePage> {
                           items: CatalogModel.items[index],
                         ),
                       )
-                    : const Center(
-                        child: CircularProgressIndicator(),
+                    :  Center(
+                        child: SimpleAnimationProgressBar(
+                          height: 15,
+                          width: 300,
+                          backgroundColor:sc(),
+                          foregrondColor:lg(),
+                          ratio: 0.5,
+                          direction: Axis.horizontal,
+                          curve: Curves.fastLinearToSlowEaseIn,
+                          duration: const Duration(seconds: 3),
+                          borderRadius: BorderRadius.circular(10),
+                          // ignore: prefer_const_literals_to_create_immutables
+                          boxShadow: [
+                             BoxShadow(
+                              color:dg(),
+                              offset:  const Offset(
+                                5.0,
+                                5.0,
+                              ),
+                              blurRadius: 4.0,
+                              spreadRadius: 4.0,
+                            ),
+                          ],
+                        ),
                       ),
               ),
             ],
           ),
-        ));
+        )));
   }
 }

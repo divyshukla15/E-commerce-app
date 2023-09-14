@@ -19,19 +19,19 @@ class CartModel {
       void add(Item item){
         _itemIds.add(item.id);
        money= items.fold(0, (total, current) => total + current.price);
-       print(totalPrice);
-      print(item.price);
-      print(money);
+       //print(totalPrice);
+      //print(item.price);
+      //print(money);
       // print()
        //num lastprice =current.price;
       }
       
       void remove(Item item){
        money= items.fold(money, (total, current) => money - item.price);
-      print(totalPrice);
-      print(item.price);
-      print(money);
-      print(item);
+      //print(totalPrice);
+      //print(item.price);
+      //print(money);
+      //print(item);
         _itemIds.remove(item.id);
       }
 }

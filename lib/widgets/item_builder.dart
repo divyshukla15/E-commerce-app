@@ -66,8 +66,8 @@ class _ItemWidgetState extends State<ItemWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(widget.items.name),
-                Text(widget.items.desc),
-                Container(
+                Wrap(children: [Text(widget.items.desc,)]),
+                SizedBox(
                   width: 200,
                   //color: Colors.amber,
                   child: Row(
