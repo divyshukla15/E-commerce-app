@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "Trending Products",
-                  style: TextStyle(
+                  style: TextStyle(fontFamily:"Cursive",
                       fontSize: 40, color: dg(), fontWeight: FontWeight.w300),
                 ),
               ),

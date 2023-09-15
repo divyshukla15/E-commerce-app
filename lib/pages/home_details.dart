@@ -60,14 +60,14 @@ class HomeDetailPage extends StatelessWidget {
                       ),
                     ),),),
                     Text(item.name,
-                    style: TextStyle(fontSize: 20, fontWeight:FontWeight.bold),),
+                    style: const TextStyle(fontSize: 20, fontWeight:FontWeight.bold,fontFamily: "Simple"),),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(item.desc,style: TextStyle(fontSize: 17),),
+                    child: Text(item.desc,style: const TextStyle(fontSize: 17,fontFamily: "Simple"),),
                   ),
                   const Padding(
                     padding: EdgeInsets.all(12.0),
-                    child:  Text("iPhone is a line of smartphones produced by Apple Inc. that use Apple's own iOS mobile operating system. The first-generation iPhone was announced by then-Apple CEO Steve Jobs on January 9, 2007. Since then, Apple has annually released new iPhone models and iOS updates. As of November 1, 2018, more than 2.2 billion iPhones had been sold. As of 2022, the iPhone accounts for 15.6% of global smartphone market shareThe iPhone was the first mobile phone to use multi-touch technology.[4] Since the iPhone's launch, it has gained larger screen sizes, video-recording, waterproofing, and many accessibility features. Up to the iPhone 8 and 8 Plus, iPhones had a single button on the front panel with the Touch ID fingerprint sensor. Since the iPhone X, iPhone models have switched to a nearly bezel-less front screen design with Face ID facial recognition, and app switching activated by gestures. Touch ID is still used for the budget iPhone SE series.",textAlign: TextAlign.justify,),
+                    child:  Text("iPhone is a line of smartphones produced by Apple Inc. that use Apple's own iOS mobile operating system. The first-generation iPhone was announced by then-Apple CEO Steve Jobs on January 9, 2007. Since then, Apple has annually released new iPhone models and iOS updates. As of November 1, 2018, more than 2.2 billion iPhones had been sold. As of 2022, the iPhone accounts for 15.6% of global smartphone market shareThe iPhone was the first mobile phone to use multi-touch technology.[4] Since the iPhone's launch, it has gained larger screen sizes, video-recording, waterproofing, and many accessibility features. Up to the iPhone 8 and 8 Plus, iPhones had a single button on the front panel with the Touch ID fingerprint sensor. Since the iPhone X, iPhone models have switched to a nearly bezel-less front screen design with Face ID facial recognition, and app switching activated by gestures. Touch ID is still used for the budget iPhone SE series.",textAlign: TextAlign.justify,style: TextStyle(fontFamily: "Simple"),),
                   ),
               // SizedBox(height: 0.0,),
               // ClipPath(

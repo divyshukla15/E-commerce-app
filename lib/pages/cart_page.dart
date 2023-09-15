@@ -2,22 +2,39 @@ import 'package:e_coommerce_app/models/cart.dart';
 import 'package:e_coommerce_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-class CartPage extends StatelessWidget {
+class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
   @override
+  State<CartPage> createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(" Cart Items"),
-        backgroundColor: Color.fromARGB(220, 168, 243, 201),
+    return
+  RefreshIndicator(
+    onRefresh: () async {
+              await Future.delayed(const Duration(microseconds: 10));
+              setState(() {
+                
+              });
+          
+            },
+    child: Scaffold(
+          appBar: AppBar(
+            title: Text(" Cart Items"),
+            backgroundColor: Color.fromARGB(220, 168, 243, 201),
+          ),
+          body: const Column(children: [
+            Expanded(child: _CartList()),
+            // Divider(),
+            _CartTotal(),
+          ]),
+      
       ),
-      body: const Column(children: [
-        Expanded(child: _CartList()),
-        // Divider(),
-        _CartTotal(),
-      ]),
-    );
+  );
   }
 }
 
@@ -29,6 +46,7 @@ class _CartTotal extends StatefulWidget {
 }
 
 class _CartTotalState extends State<_CartTotal> {
+ 
   @override
   Widget build(BuildContext context) {
     final _cart = CartModel();
@@ -39,7 +57,8 @@ class _CartTotalState extends State<_CartTotal> {
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           RefreshIndicator(
             onRefresh: () async {
-              await Future.delayed(const Duration(seconds: 1));
+              await Future.delayed(const Duration(microseconds: 10));
+          
             },child: Text(
             "\$${_cart.money}",
             style: TextStyle(
@@ -61,7 +80,7 @@ class _CartTotalState extends State<_CartTotal> {
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       backgroundColor: Colors.red,
-                      content: Text("Buying not supported , yet.")));
+                      content: Text("Buying not supported , yet.",style:TextStyle(fontFamily: "Simple"))));
                 }),
           
         ]),
@@ -96,7 +115,7 @@ class __CartListState extends State<_CartList> {
                 ),
                 const Text(
                   "No Items in the Cart",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600,fontFamily: "Simple"),
                 ),
               ],
             )

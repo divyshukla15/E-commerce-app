@@ -33,5 +33,6 @@ class CartModel {
       //print(money);
       //print(item);
         _itemIds.remove(item.id);
+        
       }
 }

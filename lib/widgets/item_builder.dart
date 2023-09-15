@@ -26,11 +26,12 @@ class _ItemWidgetState extends State<ItemWidget> {
 
   @override
   Widget build(BuildContext context) {
+    
     // timeDilation = 5.0;
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
-                height: 150,
+        height: 150,
         decoration: const BoxDecoration(
             color: Color.fromARGB(253, 249, 231, 215),
             borderRadius: BorderRadius.all(Radius.circular(13.0))),
@@ -44,10 +45,10 @@ class _ItemWidgetState extends State<ItemWidget> {
                           HomeDetailPage(item: widget.items))),
               child: Container(
                 decoration: const BoxDecoration(
-                  borderRadius : BorderRadius.all(Radius.circular(13.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(13.0)),
                   color: Color.fromARGB(220, 220, 241, 229),
                 ),
-                width: MediaQuery.of(context).size.width*0.3,
+                width: MediaQuery.of(context).size.width * 0.3,
                 height: MediaQuery.of(context).size.height,
                 margin: const EdgeInsets.all(10),
                 child: Hero(
@@ -62,43 +63,62 @@ class _ItemWidgetState extends State<ItemWidget> {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(widget.items.name),
-                Wrap(children: [Text(widget.items.desc,)]),
-                SizedBox(
-                  width: 200,
-                  //color: Colors.amber,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+            Flexible(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                // height: MediaQuery.of(context).size.height*0.5,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "\$${widget.items.price}",
-                        textScaleFactor: 1.5,
-                        style: const TextStyle(
-                          color: Color.fromARGB(255, 3, 111, 66),
-                          fontWeight: FontWeight.bold,
+                      Text(widget.items.name,
+                          style: const TextStyle(
+                              fontFamily: "Simple",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 15)),
+                      Padding(
+                        padding: const EdgeInsets.only(top:8.0, right:8.0,bottom: 10.0),
+                        child: Text(
+                          widget.items.desc,
+                          style: const TextStyle(fontFamily: "Simple"),
                         ),
                       ),
-                      AddToCart(catalog: widget.items)
-                      // Container(
-                      //     width: 50,
-                      //     height: 50,
-                      //     decoration: BoxDecoration(
-                      //         color: Color.fromARGB(255, 183, 73, 110),
-                      //         borderRadius: BorderRadius.circular(10)),
-                      //     child: const Text(
-                      //       "Buy",
-                      //       textScaleFactor: 1.5,
-                      //       style: TextStyle(
-                      //         fontWeight: FontWeight.bold,
-                      //       ),
-                      //     )),
+                      SizedBox(
+                        width: 200,
+                        //color: Colors.amber,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              "\$${widget.items.price}",
+                              textScaleFactor: 1.5,
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 3, 111, 66),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            AddToCart(catalog: widget.items)
+                            // Container(
+                            //     width: 50,
+                            //     height: 50,
+                            //     decoration: BoxDecoration(
+                            //         color: Color.fromARGB(255, 183, 73, 110),
+                            //         borderRadius: BorderRadius.circular(10)),
+                            //     child: const Text(
+                            //       "Buy",
+                            //       textScaleFactor: 1.5,
+                            //       style: TextStyle(
+                            //         fontWeight: FontWeight.bold,
+                            //       ),
+                            //     )),
+                          ],
+                        ),
+                      )
                     ],
                   ),
-                )
-              ],
+                ),
+              ),
             )
           ],
         ),
