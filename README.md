@@ -1,7 +1,7 @@
 # e_commerce_app
 
 A new Flutter project.
-![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 30 06](https://github.com/divyshukla15/E-commerce-app/assets/69780857/bd84ea77-85e8-49bf-915c-36991de7df23)
+![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 30 06](https://github.com/divyshukla15/E-commerce-app/assets/69780857/bd84ea77-85e8-49bf-915c-36991de7df23 width="100" height="100")
 
 ## Getting Started
 
