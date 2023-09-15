@@ -1,13 +1,13 @@
 # e_commerce_app
 
 A new Flutter project.
-![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 30 06](https://github.com/divyshukla15/E-commerce-app/assets/69780857/bd84ea77-85e8-49bf-915c-36991de7df23 width="100" height="100")
+
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 ## Screen Shots
-![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 26 29](https://github.com/divyshukla15/E-commerce-app/assets/69780857/34f55fee-a4d6-46ef-a724-4d0fd9157e77)
+![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 26 29](https://github.com/divyshukla15/E-commerce-app/assets/69780857/34f55fee-a4d6-46ef-a724-4d0fd9157e77){:height="10px" width="10px"}
 ![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 27 36](https://github.com/divyshukla15/E-commerce-app/assets/69780857/ea0ee11b-d009-4ec6-89e5-e209f635fd66)
 ![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 28 16](https://github.com/divyshukla15/E-commerce-app/assets/69780857/b94542a2-61a5-43e8-a7c1-12e3600bfc70)
 ![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 28 47](https://github.com/divyshukla15/E-commerce-app/assets/69780857/b2c1e39e-f512-450a-a8f9-cf641d8eafdd)
