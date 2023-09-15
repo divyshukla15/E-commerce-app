@@ -7,7 +7,7 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 ## Screen Shots
-![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 26 29](https://github.com/divyshukla15/E-commerce-app/assets/69780857/34f55fee-a4d6-46ef-a724-4d0fd9157e77){height="10px" width="10px"}
+<Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 26 29 src ="https://github.com/divyshukla15/E-commerce-app/assets/69780857/34f55fee-a4d6-46ef-a724-4d0fd9157e77" width="100" height="100>
 ![Simulator Screen Shot - iPhone 14 Plus - 2023-09-15 at 16 27 36](https://github.com/divyshukla15/E-commerce-app/assets/69780857/ea0ee11b-d009-4ec6-89e5-e209f635fd66) {
    width:150px;
    height:100px;
