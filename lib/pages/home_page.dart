@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
-//import 'package:e_coommerce_app/utils/colors.dart';
-
 import '../utils/routes.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,17 +32,18 @@ class _HomePageState extends State<HomePage> {
         .toList();
     setState(() {});
   }
-
+@override
   Widget build(BuildContext context) {
+    
     //final dummyList =List.generate(10, (index)=>CatalogModel.items[0]);
     return RefreshIndicator(
             onRefresh: () async {
               await Future.delayed(const Duration(seconds: 1));
             },child:Scaffold(
-        backgroundColor: Color.fromARGB(220, 168, 243, 201),
+        backgroundColor: lg(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Color.fromARGB(255, 3, 111, 66),
+          backgroundColor: dg(),
           elevation: 2.0,
           tooltip: "Add to Cart",
           child: const Icon(
@@ -52,7 +51,9 @@ class _HomePageState extends State<HomePage> {
             size: 30,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, MyRoute.cartRoute);
+            Navigator.pushNamed(context, MyRoute.cartRoute).then((value)=> setState(() {
+              
+            }));
           },
         ),
         appBar: AppBar(
@@ -60,15 +61,11 @@ class _HomePageState extends State<HomePage> {
         ),
         drawer: const MyDrawer(),
         body: Padding(
-          padding: EdgeInsets.only(bottom: 50),
+          padding: const EdgeInsets.only(bottom: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // const Text(
-              //   "Catalog App",
-              //   style: TextStyle(fontSize: 28,),
-              // ),
-              Padding(
+                Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "Trending Products",

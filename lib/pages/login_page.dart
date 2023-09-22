@@ -4,8 +4,6 @@ import 'package:e_coommerce_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
-
-//import 'utils/routes.dart';
 String Name = "";
 String Email = "";
 
@@ -57,10 +55,10 @@ class _LoginPageState extends State<LoginPage> {
                     top: 18.0, left: 10.0, right: 10.0, bottom: 10),
                 child: Image.asset("assets/5101874.jpg", fit: BoxFit.cover),
               ),
-              Text(
+              const Text(
                 'Welcome !!',
                 style:
-                    const TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
+                    TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
               ),
               const SizedBox(
                 height: 20,
@@ -131,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: InkWell(
                         onTap: () => moveToHome(context),
                         child: AnimatedContainer(
-                          duration: Duration(seconds: 1),
+                          duration: const Duration(seconds: 1),
                           width: changeButton ? 50 : 150, height: 50,
                           alignment: Alignment.center,
                           // ignore: sort_child_properties_last
@@ -142,9 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18)),
-                          // decoration: BoxDecoration(
-                          //    color: Colors.deepPurple,
-                          //   ),
+                        
                         ),
                       ),
                     )

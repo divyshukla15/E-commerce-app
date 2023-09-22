@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-//import '../utils/colors.dart';
-
 class MyTheme {
   static ThemeData get themeData => ThemeData(
       appBarTheme: const AppBarTheme(
@@ -12,6 +9,6 @@ class MyTheme {
           )),
    
      primarySwatch: Colors.green
-      //Color.fromARGB(255, 3, 111, 66)
+     
       );
 }

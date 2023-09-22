@@ -4,15 +4,11 @@ import 'package:e_coommerce_app/widgets/add_to_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
-//import '../utils/routes.dart';
-//import '../models/catalog.dart';
-
-// ignore: must_be_immutable
 class HomeDetailPage extends StatelessWidget {
   final Item item;
  
   //String id;
-  HomeDetailPage({
+  const HomeDetailPage({
     super.key, required this.item,
 
   });
@@ -50,7 +46,7 @@ class HomeDetailPage extends StatelessWidget {
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.5,
                     width: MediaQuery.of(context).size.width,
-                    color:Color.fromARGB(220, 220, 241, 229),
+                    color:lg(),
                     child: Hero(
                       tag: Key(item.desc.toString()),
                       transitionOnUserGestures: true,

@@ -1,11 +1,8 @@
-//import 'package:e_coommerce_app/models/cart.dart';
 import 'package:e_coommerce_app/models/catalog.dart';
 import 'package:e_coommerce_app/pages/home_details.dart';
 import 'package:flutter/material.dart';
-
 import 'add_to_cart.dart';
-//import 'package:flutter/scheduler.dart';
-//import '../models/catalog.dart';
+
 
 class ItemWidget extends StatefulWidget {
   final Item items;
@@ -19,7 +16,7 @@ class ItemWidget extends StatefulWidget {
 class _ItemWidgetState extends State<ItemWidget> {
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
     setState(() {});
   }
@@ -27,8 +24,7 @@ class _ItemWidgetState extends State<ItemWidget> {
   @override
   Widget build(BuildContext context) {
     
-    // timeDilation = 5.0;
-    return Padding(
+      return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
         height: 150,
@@ -42,7 +38,9 @@ class _ItemWidgetState extends State<ItemWidget> {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          HomeDetailPage(item: widget.items))),
+                          HomeDetailPage(item: widget.items)),).then((value)=> setState(() {
+              
+            })),
               child: Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(13.0)),
@@ -64,9 +62,8 @@ class _ItemWidgetState extends State<ItemWidget> {
               ),
             ),
             Flexible(
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width,
-                // height: MediaQuery.of(context).size.height*0.5,
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Column(
@@ -86,7 +83,6 @@ class _ItemWidgetState extends State<ItemWidget> {
                       ),
                       SizedBox(
                         width: 200,
-                        //color: Colors.amber,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -99,20 +95,7 @@ class _ItemWidgetState extends State<ItemWidget> {
                               ),
                             ),
                             AddToCart(catalog: widget.items)
-                            // Container(
-                            //     width: 50,
-                            //     height: 50,
-                            //     decoration: BoxDecoration(
-                            //         color: Color.fromARGB(255, 183, 73, 110),
-                            //         borderRadius: BorderRadius.circular(10)),
-                            //     child: const Text(
-                            //       "Buy",
-                            //       textScaleFactor: 1.5,
-                            //       style: TextStyle(
-                            //         fontWeight: FontWeight.bold,
-                            //       ),
-                            //     )),
-                          ],
+                               ],
                         ),
                       )
                     ],
@@ -127,24 +110,4 @@ class _ItemWidgetState extends State<ItemWidget> {
   }
 }
 
-// ignore: camel_case_types
-
-
-     // decoration: BoxDecoration(color: Colors.grey),
-     // child: ListTile(
-     //   onTap: () {
-       //   print("${item.name} pressed");
-      //  },
-      //  leading: Image.network(item.image),
-      //  title: Text(item.name),
-       // subtitle: Text(item.desc),
-       // trailing: Text("\$${item.price}",
-       //   textScaleFactor: 1.5,
-       //   style: const TextStyle(
-       //     color: Colors.deepPurple,
-        //    fontWeight: FontWeight.bold,
-       //   ),
-       // ),
-     // ),
-    //);
 

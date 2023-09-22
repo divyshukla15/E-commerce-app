@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../models/cart.dart';
 
+import '../utils/colors.dart';
+
 class AddToCart extends StatefulWidget {
   final Item? catalog;
 
@@ -24,13 +26,14 @@ class _AddToCartState extends State<AddToCart> {
     bool isInCart = _cart.items.contains(widget.catalog);
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromARGB(255, 3, 111, 66),
+        backgroundColor: dg(),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(17)
         )
       ),
       onPressed: () {
         if (!isInCart) {
+          // ignore: no_leading_underscores_for_local_identifiers
           final _catalog = CatalogModel();
           isInCart = true;
           // ignore: no_leading_underscores_for_local_identifiers
